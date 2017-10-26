@@ -1,0 +1,17 @@
+Package: rspotify
+Type: Package
+Title: R Client for Spotify web API
+Version: 0.1.0
+Author: Jordan Kassof <jkassof@gmail.com>
+Maintainer: Jordan Kassof <jkassof@gmail.com>
+Description: Provides complete access to the Spotify web API. rspotify gives 
+  the ability to query information about artists, albums, playlists, tracks,
+  users and more. 
+License: MIT
+LazyData: TRUE
+RoxygenNote: 6.0.1
+Imports: httr,dplyr,jsonlite,
+    purrr
+Suggests: knitr,
+    rmarkdown
+VignetteBuilder: knitr
