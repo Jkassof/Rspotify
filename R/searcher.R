@@ -1,5 +1,8 @@
 searchSpotify <- function(search, type, market = "US", limit = 20, offset = 0)
 {
+  stopifnot(type %in% c("album", "artist", "playlist", "track"),
+            limit >= 1 & limit <= 50,
+            offset >= 0 & offset <=100000)
   token <- get(".token", envir = .GlobalEnv)
   stub <- "https://api.spotify.com/v1/search?q="
   q <- gsub(pattern = " ", replacement = "+", x = search)
@@ -14,12 +17,15 @@ searchSpotify <- function(search, type, market = "US", limit = 20, offset = 0)
 
 #' Search for albums
 #'
-#' @param search
-#' @param market
-#' @param limit
-#' @param offset
+#' Function for searching for albums by album name.
 #'
-#' @return
+#' @param search search string
+#' @param market market of interest, defaults to US
+#' @param limit integer number of records to return, 1-50
+#' @param offset integer records to offset results by, 0-100,00. Use to page through results.
+#'
+#' @family search functions
+#' @return tibble of album info
 #' @export
 #'
 #' @examples
@@ -38,6 +44,7 @@ searchAlbums <- function(search, market = "US", limit = 20, offset = 0)
 #' @param limit
 #' @param offset
 #'
+#' @family search functions
 #' @return
 #' @export
 #'
@@ -46,7 +53,6 @@ searchArtists <- function(search, market = "US", limit = 20, offset = 0)
 {
   art_search <- searchSpotify(search, "artist", market, limit, offset)$artists$items
   purrr::map_df(art_search, parseArtist)
-
 }
 
 #' Search for playlists
@@ -56,6 +62,7 @@ searchArtists <- function(search, market = "US", limit = 20, offset = 0)
 #' @param limit
 #' @param offset
 #'
+#' @family search functions
 #' @return
 #' @export
 #'
@@ -70,8 +77,11 @@ searchPlaylist <- function(search, market = "US", limit = 20, offset = 0, tracks
 
 #' Vector chunking
 #'
+#' Function for splitting a vector into a list of smaller vectors. The final item in
+#' the list will be shorter in length than the rest of the vector length isn't evenly
+#' divisible by the chunk size.
 #' @param vector
-#' @param chunk.size
+#' @param chunk.size integer, length of output vectors
 #'
 #' @return
 #' @export

@@ -4,7 +4,7 @@
 \alias{parsePlaylist}
 \title{Parse playlist object}
 \usage{
-parsePlaylist(pl_obj)
+parsePlaylist(pl_obj, tracks = FALSE)
 }
 \arguments{
 \item{pl_obj}{A json-like list, playlist object returned by Spotify API}

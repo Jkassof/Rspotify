@@ -7,8 +7,21 @@
 searchAlbums(search, market = "US", limit = 20, offset = 0)
 }
 \arguments{
-\item{offset}{}
+\item{search}{search string}
+
+\item{market}{market of interest, defaults to US}
+
+\item{limit}{integer number of records to return, 1-50}
+
+\item{offset}{integer records to offset results by, 0-100,00. Use to page through results.}
+}
+\value{
+tibble of album info
 }
 \description{
-Search for albums
+Function for searching for albums by album name.
+}
+\seealso{
+Other search functions: \code{\link{searchArtists}},
+  \code{\link{searchPlaylist}}
 }

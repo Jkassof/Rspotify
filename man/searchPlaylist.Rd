@@ -4,11 +4,16 @@
 \alias{searchPlaylist}
 \title{Search for playlists}
 \usage{
-searchPlaylist(search, market = "US", limit = 20, offset = 0)
+searchPlaylist(search, market = "US", limit = 20, offset = 0,
+  tracks = FALSE)
 }
 \arguments{
 \item{offset}{}
 }
 \description{
 Search for playlists
+}
+\seealso{
+Other search functions: \code{\link{searchAlbums}},
+  \code{\link{searchArtists}}
 }

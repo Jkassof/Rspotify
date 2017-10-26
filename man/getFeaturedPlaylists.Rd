@@ -4,7 +4,8 @@
 \alias{getFeaturedPlaylists}
 \title{Title}
 \usage{
-getFeaturedPlaylists(country = "us", limit = 20, offset = 0)
+getFeaturedPlaylists(country = "us", limit = 20, offset = 0,
+  tracks = FALSE)
 }
 \arguments{
 \item{offset}{}

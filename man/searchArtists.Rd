@@ -12,3 +12,7 @@ searchArtists(search, market = "US", limit = 20, offset = 0)
 \description{
 Search for artists
 }
+\seealso{
+Other search functions: \code{\link{searchAlbums}},
+  \code{\link{searchPlaylist}}
+}

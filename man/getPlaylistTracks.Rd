@@ -4,7 +4,7 @@
 \alias{getPlaylistTracks}
 \title{Get tracks from a playlist}
 \usage{
-getPlaylistTracks(user.id, playlist.id)
+getPlaylistTracks(user.id, playlist.id, limit, offset)
 }
 \arguments{
 \item{user.id}{character string}
